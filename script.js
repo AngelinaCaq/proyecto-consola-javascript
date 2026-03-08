@@ -8,6 +8,8 @@ Elige una opción:
 3. Una aventura`
 ));
 
+//VALIDACIÓN ELECCIÓN DE JUEGOS
+
 if (isNaN(juegos) || juegos <= 0 || juegos > 3 )  {
     alert("Valor invalido, por favor recarga y elige un número del 1 al 3");
 }else if (juegos === 1) {
@@ -22,13 +24,14 @@ else if (juegos === 3 ){
     aventura();
 }
 
+//JUEGO CACHIPUN
 function cachipun() {
     
     let puntosJugador = 0
     let puntosConsola = 0
 
     for (let index = 0; index < 5; index++) {
-        let jugador = prompt(`Elige: piedra, papel o tijera / Ronda ${index + 1} de 5`);
+        let jugador = prompt(`Elige: piedra, papel o tijera / Ronda ${index + 1} de 5`).toLowerCase();
         const listaCachipun = ["piedra", "papel", "tijera"]
 
         if (listaCachipun.indexOf(jugador) === -1 ) {
@@ -91,15 +94,17 @@ function consolaJuego(){
 }
 
 
-//Juego adivina el numero
-//Faltan detalles aqui, la validación del número y que no siga sumando si no es valido
+//JUEGO ADIVINA EL NÚMERO
 function adivinaElNumero() {
     let elNumero = 25;
     for (let index = 0; index < 5; index++) {
         let num = parseInt(prompt(`Intento ${index + 1} de 5
-                                Adivina el número entre 1 y 50`));
+sAdivina el número entre 1 y 50`));
         //El jugador elige entre el 1 al 50
-        if(num === elNumero){
+        if (isNaN(num)) {
+            alert("Debes ingresar un número")
+            return
+        }else if(num === elNumero){
             alert(`Ganaste :0 ${elNumero} `)
             return
         }else if(num < elNumero){
@@ -108,12 +113,11 @@ function adivinaElNumero() {
             alert(`Uy ese no es, es menor`)
         }
     }
+    alert(`Se acabaron los intentos. El número era ${elNumero}`);
 }
 
 
-//Juego aventura
-
-
+//JUEGO AVENTURA
 
 function aventura() {
 let puntosAventura = 0
@@ -123,6 +127,7 @@ let puntosAventura = 0
         oculto: "🛸 Sales a una granja de vacas, vibras y... ¡te secuestran los aliens!",
 }
 
+//Objetos con las opciones
 const movimientos ={
     izquierda(){
         puntosAventura ++ ;
