@@ -46,4 +46,4 @@ proyecto
 
 1. Clonar o descargar este repositorio.
 2. Abrir el archivo `index.html` en un navegador.
-3. Elegir uno de los juegos desde el menú inicial.
+3. Elegir uno de los juegos desde el menú inicial
